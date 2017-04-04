@@ -41,6 +41,7 @@ public class SecurityContext extends WebSecurityConfigurerAdapter {
                 //Anyone can access the urls
                 .antMatchers(
                         "/",
+                        "/dest/**",
                         "/auth/facebook",
                         "/auth/google",
                         "/auth/twitter",
