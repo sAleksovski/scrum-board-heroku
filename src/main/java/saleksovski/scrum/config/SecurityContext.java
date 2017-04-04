@@ -42,6 +42,7 @@ public class SecurityContext extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         "/",
                         "/dest/**",
+                        "/images/**",
                         "/auth/facebook",
                         "/auth/google",
                         "/auth/twitter",
