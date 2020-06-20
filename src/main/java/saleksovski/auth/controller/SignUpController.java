@@ -40,6 +40,17 @@ public class SignUpController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/signin")
+    public String redirectRequestToRegistrationPageSignIn(WebRequest request) {
+        Connection<?> connection = providerSignInUtils.getConnectionFromSession(request);
+        if (connection != null) {
+            MyUser registered = createUserAccount(connection);
+            SecurityUtil.logInUser(registered);
+            providerSignInUtils.doPostSignUp(registered.getEmail(), request);
+        }
+        return "redirect:/";
+    }
+
     private MyUser createUserAccount(Connection<?> connection) {
         return userService.registerNewUserAccount(connection);
     }
